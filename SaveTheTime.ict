@@ -1,0 +1,404 @@
+{
+  "ctjsVersion": "1.2.1",
+  "notes": "/* empty */",
+  "libs": {
+    "place": {
+      "gridX": 512,
+      "gridY": 512
+    },
+    "fittoscreen": {
+      "mode": "scaleFit"
+    },
+    "mouse": {},
+    "keyboard": {},
+    "keyboard.polyfill": {},
+    "sound.howler": {},
+    "akatemplate": {
+      "csscss": "body {\n    background: #000;\n}"
+    }
+  },
+  "textures": [
+    {
+      "name": "Helicopter",
+      "untill": 0,
+      "grid": [
+        2,
+        1
+      ],
+      "axis": [
+        62,
+        39
+      ],
+      "marginx": 0,
+      "marginy": 0,
+      "imgWidth": 248,
+      "imgHeight": 78,
+      "width": 124,
+      "height": 78,
+      "offx": 0,
+      "offy": 0,
+      "origname": "i2cef46d0-38b6-4bfc-a5ee-9fc6c377071e.png",
+      "source": "/home/ahmed/Documents/Work/GameDev/Save The Day/Exports/Helicopter.png",
+      "shape": "rect",
+      "left": 62,
+      "right": 62,
+      "top": 39,
+      "bottom": 39,
+      "uid": "2cef46d0-38b6-4bfc-a5ee-9fc6c377071e",
+      "lastmod": 1577037821527
+    },
+    {
+      "name": "Drop_Platform",
+      "untill": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "axis": [
+        0,
+        0
+      ],
+      "marginx": 0,
+      "marginy": 0,
+      "imgWidth": 125,
+      "imgHeight": 41,
+      "width": 125,
+      "height": 41,
+      "offx": 0,
+      "offy": 0,
+      "origname": "i96800b0a-0da6-46de-b2ef-1806a9a58abe.png",
+      "source": "/home/ahmed/Documents/Work/GameDev/Save The Day/Exports/Drop Platform.png",
+      "shape": "rect",
+      "left": 0,
+      "right": 125,
+      "top": 0,
+      "bottom": 41,
+      "uid": "96800b0a-0da6-46de-b2ef-1806a9a58abe"
+    },
+    {
+      "name": "Platform",
+      "untill": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "axis": [
+        0,
+        0
+      ],
+      "marginx": 0,
+      "marginy": 0,
+      "imgWidth": 91,
+      "imgHeight": 86,
+      "width": 91,
+      "height": 86,
+      "offx": 0,
+      "offy": 0,
+      "origname": "i51b3a0ab-6748-40e0-b50d-9a3a6f001f9c.png",
+      "source": "/home/ahmed/Documents/Work/GameDev/Save The Day/Exports/Platform.png",
+      "shape": "rect",
+      "left": 0,
+      "right": 91,
+      "top": 0,
+      "bottom": 86,
+      "uid": "51b3a0ab-6748-40e0-b50d-9a3a6f001f9c"
+    },
+    {
+      "name": "Platform_B",
+      "untill": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "axis": [
+        0,
+        0
+      ],
+      "marginx": 0,
+      "marginy": 0,
+      "imgWidth": 100,
+      "imgHeight": 101,
+      "width": 100,
+      "height": 101,
+      "offx": 0,
+      "offy": 0,
+      "origname": "if3662465-6ff1-430f-913a-9017a7932814.png",
+      "source": "/home/ahmed/Documents/Work/GameDev/Save The Day/Exports/Platform B.png",
+      "shape": "rect",
+      "left": 0,
+      "right": 100,
+      "top": 0,
+      "bottom": 101,
+      "uid": "f3662465-6ff1-430f-913a-9017a7932814"
+    },
+    {
+      "name": "Fellow",
+      "untill": 0,
+      "grid": [
+        2,
+        1
+      ],
+      "axis": [
+        0,
+        0
+      ],
+      "marginx": 0,
+      "marginy": 0,
+      "imgWidth": 212,
+      "imgHeight": 138,
+      "width": 106,
+      "height": 138,
+      "offx": 0,
+      "offy": 0,
+      "origname": "i867846fd-936f-497f-aeea-9894ee671811.png",
+      "source": "/home/ahmed/Documents/Work/GameDev/Save The Day/Exports/Fellow.png",
+      "shape": "rect",
+      "left": 0,
+      "right": 106,
+      "top": 0,
+      "bottom": 138,
+      "uid": "867846fd-936f-497f-aeea-9894ee671811",
+      "lastmod": 1577038178455
+    },
+    {
+      "name": "Flat_Nature_Art",
+      "untill": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "axis": [
+        0,
+        0
+      ],
+      "marginx": 0,
+      "marginy": 0,
+      "imgWidth": 1280,
+      "imgHeight": 720,
+      "width": 1280,
+      "height": 720,
+      "offx": 0,
+      "offy": 0,
+      "origname": "i824b87bf-74af-4cc8-8eac-03a97b9198ce.png",
+      "source": "/home/ahmed/Downloads/Game Assets/Flat Nature/Flat Nature Art.png",
+      "shape": "rect",
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "bottom": 0,
+      "uid": "824b87bf-74af-4cc8-8eac-03a97b9198ce",
+      "tiled": true,
+      "lastmod": 1577038464761
+    }
+  ],
+  "skeletons": [],
+  "types": [
+    {
+      "name": "Helicopter",
+      "depth": 1,
+      "oncreate": "this.ctype = 'Helicopter';\n\nthis.animationSpeed = 0.2;\nthis.play();",
+      "onstep": "var leftRight = ct.actions.LeftRight.value;\nvar upDown = ct.actions.UpDown.value;\n\nthis.x += 8 * ct.delta * ct.actions.LeftRight.value; // Move by X axis\nthis.y += 8 * ct.delta * ct.actions.UpDown.value; // Move by Y axis\n\nif(leftRight != 0) {\n    this.scale.x = leftRight;\n}",
+      "ondraw": "",
+      "ondestroy": "",
+      "uid": "e569e1ed-8d5e-49a5-bee6-a60fe7ca1a36",
+      "texture": "2cef46d0-38b6-4bfc-a5ee-9fc6c377071e",
+      "extends": {},
+      "lastmod": 1577039263574
+    },
+    {
+      "name": "SmallPlatform",
+      "depth": 0,
+      "oncreate": "",
+      "onstep": "this.move();",
+      "ondraw": "",
+      "ondestroy": "",
+      "uid": "30687c9e-94e3-4ef3-b482-d8f17a4b69eb",
+      "texture": "51b3a0ab-6748-40e0-b50d-9a3a6f001f9c",
+      "extends": {},
+      "lastmod": 1577037952326
+    },
+    {
+      "name": "BigPlatform",
+      "depth": 0,
+      "oncreate": "",
+      "onstep": "this.move();",
+      "ondraw": "",
+      "ondestroy": "",
+      "uid": "a305e1a4-9c3e-4387-8b87-3fd8e0119785",
+      "texture": "f3662465-6ff1-430f-913a-9017a7932814",
+      "extends": {},
+      "lastmod": 1577037961359
+    },
+    {
+      "name": "DropPlatform",
+      "depth": 0,
+      "oncreate": "this.ctype = 'DropPlatform';",
+      "onstep": "this.move();",
+      "ondraw": "",
+      "ondestroy": "",
+      "uid": "568dd803-103d-4db2-90d2-b8a27234fb18",
+      "texture": "96800b0a-0da6-46de-b2ef-1806a9a58abe",
+      "extends": {},
+      "lastmod": 1577039273525
+    },
+    {
+      "name": "Fellow",
+      "depth": 0,
+      "oncreate": "this.ctype = 'Fellow';\n\nthis.animationSpeed = 0.1;\nthis.play();",
+      "onstep": "this.move();",
+      "ondraw": "",
+      "ondestroy": "",
+      "uid": "07baef49-ca88-4d3d-b3cc-4e55904e21bc",
+      "texture": "867846fd-936f-497f-aeea-9894ee671811",
+      "extends": {},
+      "lastmod": 1577038623625
+    }
+  ],
+  "sounds": [],
+  "styles": [],
+  "rooms": [
+    {
+      "name": "MainRoom",
+      "oncreate": "",
+      "onstep": "",
+      "ondraw": "",
+      "onleave": "",
+      "width": 800,
+      "height": 600,
+      "backgrounds": [
+        {
+          "depth": -10,
+          "texture": "824b87bf-74af-4cc8-8eac-03a97b9198ce",
+          "extends": {
+            "repeat": "no-repeat"
+          }
+        }
+      ],
+      "copies": [
+        {
+          "x": 58,
+          "y": 453,
+          "uid": "e569e1ed-8d5e-49a5-bee6-a60fe7ca1a36"
+        },
+        {
+          "x": 128,
+          "y": 256,
+          "uid": "30687c9e-94e3-4ef3-b482-d8f17a4b69eb"
+        },
+        {
+          "x": 576,
+          "y": 320,
+          "uid": "a305e1a4-9c3e-4387-8b87-3fd8e0119785"
+        },
+        {
+          "x": 0,
+          "y": 192,
+          "uid": "a305e1a4-9c3e-4387-8b87-3fd8e0119785"
+        },
+        {
+          "x": 320,
+          "y": 128,
+          "uid": "30687c9e-94e3-4ef3-b482-d8f17a4b69eb"
+        },
+        {
+          "x": 384,
+          "y": 448,
+          "uid": "30687c9e-94e3-4ef3-b482-d8f17a4b69eb"
+        },
+        {
+          "x": 576,
+          "y": 64,
+          "uid": "568dd803-103d-4db2-90d2-b8a27234fb18"
+        },
+        {
+          "x": 640,
+          "y": 512,
+          "uid": "568dd803-103d-4db2-90d2-b8a27234fb18"
+        },
+        {
+          "x": 32,
+          "y": 160,
+          "uid": "07baef49-ca88-4d3d-b3cc-4e55904e21bc",
+          "tx": 0.5,
+          "ty": 0.5
+        },
+        {
+          "x": 352,
+          "y": 64,
+          "uid": "07baef49-ca88-4d3d-b3cc-4e55904e21bc",
+          "tx": 0.5,
+          "ty": 0.5
+        },
+        {
+          "x": 608,
+          "y": 288,
+          "uid": "07baef49-ca88-4d3d-b3cc-4e55904e21bc",
+          "tx": 0.5,
+          "ty": 0.5
+        }
+      ],
+      "tiles": [
+        {
+          "depth": -10,
+          "tiles": []
+        }
+      ],
+      "uid": "41c343b0-7d82-457d-ad30-003e09a65ec5",
+      "thumbnail": "003e09a65ec5",
+      "gridX": 64,
+      "gridY": 64,
+      "lastmod": 1577038928113
+    }
+  ],
+  "actions": [
+    {
+      "name": "UpDown",
+      "methods": [
+        {
+          "code": "keyboard.ArrowUp",
+          "multiplier": -1
+        },
+        {
+          "code": "keyboard.ArrowDown"
+        }
+      ]
+    },
+    {
+      "name": "LeftRight",
+      "methods": [
+        {
+          "code": "keyboard.ArrowRight"
+        },
+        {
+          "code": "keyboard.ArrowLeft",
+          "multiplier": -1
+        }
+      ]
+    }
+  ],
+  "starting": 0,
+  "settings": {
+    "minifyhtmlcss": false,
+    "minifyjs": false,
+    "fps": 30,
+    "version": [
+      0,
+      0,
+      0
+    ],
+    "versionPostfix": "",
+    "export": {
+      "windows64": true,
+      "windows32": true,
+      "linux64": true,
+      "linux32": true,
+      "mac64": true,
+      "debug": false
+    },
+    "title": "Save The Time",
+    "author": "Ahmed Maawy",
+    "site": "https://github.com/ahmedmaawy"
+  },
+  "scripts": [],
+  "fonts": []
+}
