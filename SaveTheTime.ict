@@ -1,6 +1,6 @@
 {
   "ctjsVersion": "1.2.1",
-  "notes": "/* empty */",
+  "notes": "// Room\nthis.totalFellows = 3;\nthis.fellowsPicked = 0;",
   "libs": {
     "place": {
       "gridX": 512,
@@ -45,7 +45,7 @@
       "top": 39,
       "bottom": 39,
       "uid": "2cef46d0-38b6-4bfc-a5ee-9fc6c377071e",
-      "lastmod": 1577037821527
+      "lastmod": 1577039631808
     },
     {
       "name": "Drop_Platform",
@@ -197,13 +197,13 @@
       "name": "Helicopter",
       "depth": 1,
       "oncreate": "this.ctype = 'Helicopter';\n\nthis.animationSpeed = 0.2;\nthis.play();",
-      "onstep": "var leftRight = ct.actions.LeftRight.value;\nvar upDown = ct.actions.UpDown.value;\n\nthis.x += 8 * ct.delta * ct.actions.LeftRight.value; // Move by X axis\nthis.y += 8 * ct.delta * ct.actions.UpDown.value; // Move by Y axis\n\nif(leftRight != 0) {\n    this.scale.x = leftRight;\n}",
+      "onstep": "// Make movement in accordance to \"Actions\"\nvar leftRight = ct.actions.LeftRight.value;\nvar upDown = ct.actions.UpDown.value;\n\nthis.x += 8 * ct.delta * ct.actions.LeftRight.value; // Move by X axis\nthis.y += 8 * ct.delta * ct.actions.UpDown.value; // Move by Y axis\n\n// Rotate left / right\nif(leftRight != 0) {\n    this.scale.x = leftRight;\n}\n\n// Have we picked up a fellow?\nvar fellow = ct.place.meet(this, this.x, this.y, 'Fellow');\n\nif (fellow) {\n    fellow.kill = true;\n    ct.room.fellowsPicked += 1; \n}\n\n// Are we dropping folks?\nvar dropPlatform = ct.place.meet(this, this.x, this.y, 'DropPlatform');\n\nif (dropPlatform) {\n    if(ct.room.fellowsPicked == ct.room.totalFellows) {\n        ct.rooms.switch('GameSuccess');\n    }\n}",
       "ondraw": "",
       "ondestroy": "",
       "uid": "e569e1ed-8d5e-49a5-bee6-a60fe7ca1a36",
       "texture": "2cef46d0-38b6-4bfc-a5ee-9fc6c377071e",
       "extends": {},
-      "lastmod": 1577039263574
+      "lastmod": 1577041417890
     },
     {
       "name": "SmallPlatform",
@@ -239,7 +239,7 @@
       "uid": "568dd803-103d-4db2-90d2-b8a27234fb18",
       "texture": "96800b0a-0da6-46de-b2ef-1806a9a58abe",
       "extends": {},
-      "lastmod": 1577039273525
+      "lastmod": 1577041423995
     },
     {
       "name": "Fellow",
@@ -251,17 +251,39 @@
       "uid": "07baef49-ca88-4d3d-b3cc-4e55904e21bc",
       "texture": "867846fd-936f-497f-aeea-9894ee671811",
       "extends": {},
-      "lastmod": 1577038623625
+      "lastmod": 1577039552182
     }
   ],
   "sounds": [],
-  "styles": [],
+  "styles": [
+    {
+      "name": "Timer",
+      "uid": "51a861e9-bc00-4b48-ae5c-602e39363980",
+      "origname": "s602e39363980",
+      "font": {
+        "family": "sans-serif",
+        "size": 24,
+        "weight": "600",
+        "italic": false,
+        "halign": "left"
+      },
+      "fill": {
+        "type": "0",
+        "color": "#FF0000"
+      },
+      "stroke": {
+        "color": "#F2CE00",
+        "weight": 3
+      },
+      "lastmod": 1577039788908
+    }
+  ],
   "rooms": [
     {
       "name": "MainRoom",
-      "oncreate": "",
+      "oncreate": "this.timeLeft = 5;\nthis.timeLabel = new PIXI.Text('Seconds Left: ' + this.timeLeft, ct.styles.get('Timer'));\nthis.addChild(this.timeLabel);\nthis.timeLabel.x = 30;\nthis.timeLabel.y = 30;\n\nthis.totalFellows = 3;\nthis.fellowsPicked = 0;\n\nfunction reduceTime(obj) {\n    obj.timeLeft --;\n\n    if(obj.timeLeft > 0) {\n        setTimeout(reduceTime, 1000, obj);\n    } else {\n        ct.rooms.switch('GameOver');\n    }\n}\n\nsetTimeout(reduceTime, 1000, this);",
       "onstep": "",
-      "ondraw": "",
+      "ondraw": "this.timeLabel.text = 'Seconds Left: ' + this.timeLeft;",
       "onleave": "",
       "width": 800,
       "height": 600,
@@ -347,7 +369,67 @@
       "thumbnail": "003e09a65ec5",
       "gridX": 64,
       "gridY": 64,
-      "lastmod": 1577038928113
+      "lastmod": 1577041246388
+    },
+    {
+      "name": "GameOver",
+      "oncreate": "this.gameOverLabel = new PIXI.Text('Game Over');\nthis.gameOverLabel.x = ct.width / 2;\nthis.gameOverLabel.y = ct.height / 2;\nthis.addChild(this.gameOverLabel);",
+      "onstep": "",
+      "ondraw": "",
+      "onleave": "",
+      "width": 800,
+      "height": 600,
+      "backgrounds": [
+        {
+          "depth": -10,
+          "texture": "824b87bf-74af-4cc8-8eac-03a97b9198ce",
+          "extends": {
+            "repeat": "no-repeat"
+          }
+        }
+      ],
+      "copies": [],
+      "tiles": [
+        {
+          "depth": -10,
+          "tiles": []
+        }
+      ],
+      "uid": "9b048463-5e06-42c0-ace7-ecdc57664a3c",
+      "thumbnail": "ecdc57664a3c",
+      "gridX": 64,
+      "gridY": 64,
+      "lastmod": 1577041167915
+    },
+    {
+      "name": "GameSuccess",
+      "oncreate": "this.gameSuccess = new PIXI.Text('Game Success');\nthis.gameSuccess.x = ct.width / 2;\nthis.gameSuccess.y = ct.height / 2;\nthis.addChild(this.gameSuccess);",
+      "onstep": "",
+      "ondraw": "",
+      "onleave": "",
+      "width": 800,
+      "height": 600,
+      "backgrounds": [
+        {
+          "depth": -11,
+          "texture": "824b87bf-74af-4cc8-8eac-03a97b9198ce",
+          "extends": {
+            "repeat": "no-repeat"
+          }
+        }
+      ],
+      "copies": [],
+      "tiles": [
+        {
+          "depth": -10,
+          "tiles": []
+        }
+      ],
+      "uid": "1359449d-6fe6-420a-add9-a08c50c606dc",
+      "thumbnail": "a08c50c606dc",
+      "gridX": 64,
+      "gridY": 64,
+      "lastmod": 1577041190828
     }
   ],
   "actions": [
@@ -400,5 +482,7 @@
     "site": "https://github.com/ahmedmaawy"
   },
   "scripts": [],
-  "fonts": []
+  "fonts": [],
+  "styletick": null,
+  "palette": []
 }
